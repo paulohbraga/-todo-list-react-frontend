@@ -1,21 +1,21 @@
 import React from 'react'
+import Grid from '../template/grid';
+import IconItem from './IconItem'
 
 
-const TodoForm = () => {
+export default props => {
     return (
         <div role='form' className='todoForm'>
-            <div className='col-xs-12 col-sm-9 col-md-10'>
+            <Grid cols='12 9 10'>
                 <input id='description' className='form-control' 
-                    placeholder='Add task'></input>
-            </div>
-            <div className='col-xs-12 col-sm-3 col-md-2'>
-                <button className='btn btn-primary'>
-                    <i className='fa fa-plus'></i>
-                </button>
-            </div>
+                    placeholder='Add task' value={props.description} onChange={props.handleChange}></input>
+
+            </Grid>
+            <Grid cols='12 3 2'>
+                <IconItem type='primary' icon='plus' onClick={props.addHandle}></IconItem>
+            </Grid>
 
         </div>
     );
 }
 
-export default TodoForm;
