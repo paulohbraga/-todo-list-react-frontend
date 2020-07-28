@@ -4,11 +4,24 @@ import IconItem from './IconItem'
 
 
 export default props => {
+
+    const keyHandler = (e) => {
+        if(e.key === "Enter"){
+            e.shiftKey ? props.handleSearch() : props.addHandle()
+        }else if(e.key === 'Escape'){
+            props.handleClear()
+        }
+    }
+
+
+
     return (
         <div role='form' className='todoForm'>
             <Grid cols='12 9 10'>
                 <input id='description' className='form-control' 
-                    placeholder='Add task' value={props.description} onChange={(e) => {props.handleChange(e)}}></input>
+                    placeholder='Add task' value={props.description}
+                    onChange={(e) => {props.handleChange(e)}} onKeyUp={keyHandler}>
+                </input>
 
             </Grid>
             <Grid cols='12 3 2'>
