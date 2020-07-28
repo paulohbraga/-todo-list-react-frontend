@@ -8,12 +8,13 @@ export default props => {
         <div role='form' className='todoForm'>
             <Grid cols='12 9 10'>
                 <input id='description' className='form-control' 
-                    placeholder='Add task' value={props.description} onChange={props.handleChange}></input>
+                    placeholder='Add task' value={props.description} onChange={(e) => {props.handleChange(e)}}></input>
 
             </Grid>
             <Grid cols='12 3 2'>
                 <IconItem type='primary' icon='plus' onClick={props.addHandle}></IconItem>
                 <IconItem type='info' icon='search' onClick={props.handleSearch}></IconItem>
+                <IconItem type='default' icon='close' onClick={props.handleClear}></IconItem>
             </Grid>
 
         </div>
